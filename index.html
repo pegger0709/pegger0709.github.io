@@ -600,6 +600,9 @@
                 <li><a href="https://medium.com/@philip.egger.1987"><i class="fa fa-medium"></i></a></li> <!-- Change # With your Medium Link -->
                 <li><a href="https://scholar.google.com/citations?user=k_nyyE0AAAAJ&hl=en"><i class="fa fa-graduation-cap"></i></a></li> <!-- Change # With your Google Plus Link -->                  
             </ul>
+            <div class="text-center" style="margin-bottom: 10px;">
+                <p><i class="fa fa-eye"></i> Page Views: <span id="viewCounter">0</span></p>
+            </div>
             <p class="pull-right"> © 2025 Philip Egger. All rights reserved. Template by : <a href="http://webthemez.com">webthemez</a></p> <!-- copyright text here-->
            
         </div><!-- end container -->
@@ -634,6 +637,32 @@
     <!-- Javascripts
     ================================================== -->
     <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- View Counter Script -->
+    <script type="text/javascript">
+        // Initialize and update view counter
+        function updateViewCounter() {
+            // Get current count from localStorage, default to 0 if not found
+            let viewCount = localStorage.getItem('pageViewCount');
+            if (viewCount === null) {
+                viewCount = 0;
+            } else {
+                viewCount = parseInt(viewCount);
+            }
+            
+            // Increment the count
+            viewCount++;
+            
+            // Store updated count back to localStorage
+            localStorage.setItem('pageViewCount', viewCount);
+            
+            // Update the display
+            document.getElementById('viewCounter').textContent = viewCount;
+        }
+        
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', updateViewCounter);
+    </script>
 
   </body>
 </html>
